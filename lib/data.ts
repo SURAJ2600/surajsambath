@@ -8,7 +8,7 @@ export const profile = {
   phone: '+60 1125319833',
   github: 'https://github.com/SURAJ2600',
   linkedin: 'https://linkedin.com/in/surajsambath',
-  resume: 'https://drive.google.com/uc?export=download&id=15kVZFZEQznMmBBej7ApaSADey5vZZHEc',
+  resume: 'https://drive.google.com/uc?export=download&id=1T4yPFUjSs8GnruRjivYJPCCXiaD9Qw9G',
   summary:
     'Senior Android engineer with 10 years of Kotlin and Java. I led the mobile platform team at Mindvalley, owning media playback, performance and release infrastructure for apps with millions of users. Now building Vibrantly, an AI health app, across mobile, web and backend.',
 }
