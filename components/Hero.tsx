@@ -1,4 +1,4 @@
-import { ArrowRight, Download, Github, Linkedin, Mail, MapPin } from 'lucide-react'
+import { ArrowRight, Download, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
 import { profile, stats } from '@/lib/data'
 import { PhoneShowcase } from './PhoneShowcase'
 
@@ -16,14 +16,6 @@ export function Hero() {
 
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-14 px-6 py-16 md:grid-cols-[1.35fr_1fr] md:items-center">
         <div className="min-w-0 animate-fade-up">
-          <a
-            href="#contact"
-            className="mb-6 inline-flex max-w-full items-center gap-2 rounded-2xl border border-accent/30 bg-accent/5 px-3 py-1 font-mono text-[11px] text-accent transition-colors hover:bg-accent/10"
-          >
-            <span className="h-1.5 w-1.5 shrink-0 animate-pulse rounded-full bg-accent" />
-            <span>{profile.availability}</span>
-          </a>
-
           <h1 className="text-balance text-4xl font-semibold leading-[1.1] tracking-tight md:text-6xl">
             Building Android
             <br />
@@ -75,10 +67,17 @@ export function Hero() {
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted">
-            <span className="inline-flex items-center gap-2">
+            <span className="inline-flex items-center gap-2" title={profile.locationNote}>
               <MapPin className="h-4 w-4" />
-              {profile.location}
+              {profile.location} · working in Kuala Lumpur
             </span>
+            <a
+              href={`tel:${profile.phone.replace(/\s/g, '')}`}
+              className="inline-flex items-center gap-2 transition-colors hover:text-ink"
+            >
+              <Phone className="h-4 w-4" />
+              {profile.phone}
+            </a>
             <a
               href={profile.github}
               target="_blank"

@@ -1,11 +1,11 @@
 export const profile = {
   name: 'Suraj Sambath Kumar',
   role: 'Senior Android Engineer',
-  location: 'Kuala Lumpur, Malaysia',
-  availability: 'Open to Senior Android roles · Dublin · Bengaluru · Remote',
+  location: 'Kerala, India',
+  locationNote: 'Working in Kuala Lumpur, Malaysia with Mindvalley for the last 4 years',
   url: 'https://suraj2600.github.io/surajsambath/',
   email: 'surajsambathkumar@gmail.com',
-  phone: '+60 1125319833',
+  phone: '+91 94465 23374',
   github: 'https://github.com/SURAJ2600',
   linkedin: 'https://linkedin.com/in/surajsambath',
   resume: 'https://drive.google.com/uc?export=download&id=1T4yPFUjSs8GnruRjivYJPCCXiaD9Qw9G',
@@ -144,11 +144,10 @@ export const projects: Project[] = [
     tags: ['React Native', 'LLM', 'Adapty', 'Cloud Run'],
   },
   {
-    name: 'vibe-station (open source)',
-    tagline:
-      'Fixed the macOS "Same network" QR pairing in this Rust orchestrator for parallel AI coding agents, tested end to end on a real phone.',
-    url: 'https://github.com/fastestdevalive/vibe-station/pull/268',
-    tags: ['Rust', 'Open source', 'Networking'],
+    name: 'More on GitHub',
+    tagline: 'Open-source contributions, side projects and experiments.',
+    url: 'https://github.com/SURAJ2600',
+    tags: ['Open source', 'Kotlin', 'TypeScript'],
   },
   {
     name: 'Mindvalley',

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import clsx from 'clsx'
-import { ChevronLeft, ChevronRight, GitPullRequest, Pause, Play, SkipBack, SkipForward } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Github, Pause, Play, SkipBack, SkipForward } from 'lucide-react'
 import { profile } from '@/lib/data'
 
 const AUTOPLAY_MS = 5000
@@ -30,10 +30,6 @@ function ProfileScreen() {
         <div className="text-lg font-semibold text-ink">{profile.name}</div>
         <div className="font-mono text-xs text-muted">{profile.role}</div>
       </div>
-      <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 font-mono text-[10px] text-accent">
-        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-        open to work
-      </span>
       <div className="flex flex-wrap justify-center gap-1.5">
         {['Kotlin', 'Compose', 'Media3', 'AI'].map((t) => (
           <span key={t} className="rounded-md bg-line/80 px-2 py-0.5 font-mono text-[10px] text-ink/70">
@@ -163,30 +159,24 @@ function ChatScreen() {
   )
 }
 
-function OpenSourceScreen() {
+function GitHubScreen() {
   return (
-    <div className="flex h-full flex-col gap-3 px-4 pt-4">
-      <div className="font-mono text-[10px] uppercase tracking-wider text-muted">Open source</div>
-      <div className="rounded-xl border border-line bg-line/40 p-3">
-        <div className="flex items-center gap-2">
-          <GitPullRequest className="h-4 w-4 text-accent" />
-          <span className="font-mono text-[10px] text-muted">vibe-station #268</span>
-        </div>
-        <div className="mt-2 text-xs font-semibold leading-snug text-ink">
-          fix(mobile-auth): find LAN address on macOS for the Same-network QR
-        </div>
-        <div className="mt-2 flex gap-2 font-mono text-[9px]">
-          <span className="rounded-full bg-accent/15 px-2 py-0.5 text-accent">+257 −39</span>
-          <span className="rounded-full bg-line px-2 py-0.5 text-muted">Rust</span>
-        </div>
+    <div className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center">
+      <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-line">
+        <Github className="h-8 w-8 text-ink" />
+      </span>
+      <div>
+        <div className="text-base font-semibold text-ink">@SURAJ2600</div>
+        <div className="text-[11px] text-muted">Open source, side projects and experiments</div>
       </div>
-      <div className="space-y-1.5 rounded-xl bg-bg/80 p-3 font-mono text-[9px] leading-relaxed">
-        <div className="text-accent">✓ 9 unit tests passing</div>
-        <div className="text-accent">✓ cargo fmt clean</div>
-        <div className="text-ink/80">$ qr → http://192.168.100.124:7421</div>
-        <div className="text-muted">[mobile-auth] redeem OK origin=local</div>
-      </div>
-      <div className="mt-auto pb-2 text-center font-mono text-[9px] text-muted">tested end to end on a real phone</div>
+      <a
+        href={profile.github}
+        target="_blank"
+        rel="noreferrer"
+        className="rounded-full bg-accent px-4 py-2 font-mono text-[11px] text-bg transition-opacity hover:opacity-90"
+      >
+        View my GitHub →
+      </a>
     </div>
   )
 }
@@ -196,7 +186,7 @@ const screens: { title: string; node: ReactNode }[] = [
   { title: 'Performance', node: <StatsScreen /> },
   { title: 'Media playback', node: <PlayerScreen /> },
   { title: 'Vibrantly AI', node: <ChatScreen /> },
-  { title: 'Open source', node: <OpenSourceScreen /> },
+  { title: 'GitHub', node: <GitHubScreen /> },
 ]
 
 export function PhoneShowcase() {

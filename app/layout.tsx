@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Suraj Sambath Kumar — Senior Android Engineer',
   description:
-    'Senior Android engineer with 10 years of Kotlin. Led the mobile platform team at Mindvalley: media playback, 99.6% crash-free sessions, 30% faster cold start. Open to Dublin, Bengaluru and remote roles.',
+    'Senior Android engineer with 10 years of Kotlin. Led the mobile platform team at Mindvalley: media playback, 99.6% crash-free sessions, 30% faster cold start.',
   authors: [{ name: 'Suraj Sambath Kumar' }],
   openGraph: {
     title: 'Suraj Sambath Kumar — Senior Android Engineer',
