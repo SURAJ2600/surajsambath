@@ -2,6 +2,7 @@ export const profile = {
   name: 'Suraj Sambath Kumar',
   role: 'Senior Android Engineer',
   location: 'Kuala Lumpur, Malaysia',
+  availability: 'Open to Senior Android roles · Dublin · Bengaluru · Remote',
   url: 'https://suraj2600.github.io/surajsambath/',
   email: 'surajsambathkumar@gmail.com',
   phone: '+60 1125319833',
@@ -9,8 +10,15 @@ export const profile = {
   linkedin: 'https://linkedin.com/in/surajsambath',
   resume: 'https://drive.google.com/uc?export=download&id=15kVZFZEQznMmBBej7ApaSADey5vZZHEc',
   summary:
-    "Senior Android Engineer with 10+ years building platform architecture, media systems, and performance-critical subsystems — video/audio pipelines, CI/CD, startup performance — for apps used by millions. Lately I've been stretching into web and iOS through AI-assisted development with Claude Code and Cursor. I've never thought of myself as a finished book; curiosity keeps pulling me toward new things, and I love working with great people and going the extra mile to get things done right.",
+    'Senior Android engineer with 10 years of Kotlin and Java. I led the mobile platform team at Mindvalley, owning media playback, performance and release infrastructure for apps with millions of users. Now building Vibrantly, an AI health app, across mobile, web and backend.',
 }
+
+export const stats = [
+  { value: '10', unit: 'yrs', label: 'Android experience' },
+  { value: '99.6', unit: '%', label: 'Crash-free sessions' },
+  { value: '30', unit: '%', label: 'Faster cold start' },
+  { value: '5M+', unit: '', label: 'Downloads on apps I shipped' },
+]
 
 export const skills = [
   { group: 'Languages', items: ['Kotlin', 'Java', 'JavaScript', 'TypeScript', 'XML'] },
@@ -68,18 +76,25 @@ export const experience: Experience[] = [
     company: 'Mindvalley',
     url: 'https://www.mindvalley.com',
     roles: [
-      { title: 'Senior Android Engineer', period: '2023 — Present' },
-      { title: 'Android Engineer', period: '2020 — 2023' },
+      { title: 'Senior Software Engineer — Vibrantly (AI Health App)', period: '2026 — Present' },
+      { title: 'Senior Android Developer', period: '2023 — 2026' },
+      { title: 'Android Developer', period: '2020 — 2023' },
     ],
     highlights: [
+      'Building Vibrantly, an AI health app: LLM-driven conversational onboarding, Adapty subscriptions and top-up credits with a PostgreSQL webhook backend, and a 12-service → modular-monolith migration on Cloud Run.',
+      'Led and mentored a mobile platform team of 4 engineers: technical decisions, code reviews, engineering standards.',
       'Own core Android platform components — media playback, performance infrastructure, build optimization — across multiple high-traffic apps.',
+      'Worked on the login module built on Auth0 (Okta).',
+      'Released the Mindvalley Android app end to end on Google Play: testing tracks, staged rollouts, target SDK and Data safety policy fixes.',
       'Re-architected video/audio playback with ExoPlayer + Media3: reusable media libraries, downloads, advanced playback controls. Significant stability gains on low-end devices.',
       'Lifted crash-free sessions from 97% → 99.6% by stabilizing high-risk modules, raising unit test coverage, and hardening error handling.',
       'Cut app cold-start by 30% using Baseline Profiles and startup optimization.',
       'Integrated Jetpack Compose into production features through reusable composables.',
       'Tuned CI/CD on Bitrise + GitHub Actions, reducing build times 15% via caching and automated quality gates.',
+      'Fixed a hard-to-reproduce background audio failure on older Samsung devices (pre-Android 9) using Media3 playback resumption.',
+      'Built GitHub Actions pipelines that version and publish internal SDKs to JFrog Artifactory.',
       'Built a Kotlin Multiplatform PoC for shared user-account logic across Android and iOS.',
-      'Introduced AI-assisted engineering workflows with Claude, standardizing Android best practices across the team.',
+      'Introduced AI-assisted engineering with Claude Code skills and hooks (coding standards, Compose, lint/ktlint, scripted releases).',
     ],
   },
   {
@@ -123,6 +138,19 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: 'Vibrantly',
+    tagline:
+      'AI health app — food logging, blood work analysis and LLM chat. Built conversational onboarding, subscriptions and top-up credits across mobile, web and backend.',
+    tags: ['React Native', 'LLM', 'Adapty', 'Cloud Run'],
+  },
+  {
+    name: 'vibe-station (open source)',
+    tagline:
+      'Fixed the macOS "Same network" QR pairing in this Rust orchestrator for parallel AI coding agents, tested end to end on a real phone.',
+    url: 'https://github.com/fastestdevalive/vibe-station/pull/268',
+    tags: ['Rust', 'Open source', 'Networking'],
+  },
+  {
     name: 'Mindvalley',
     tagline:
       'Personal-growth platform — owned media playback, performance infrastructure, build optimization.',
@@ -157,6 +185,7 @@ export const education = [
 ]
 
 export const certifications = [
+  { name: 'Namaste AI Course', issuer: 'NamasteDev', year: '2026' },
   { name: 'Certified Professional Android Developer', issuer: 'MindOrks', year: '2020' },
   { name: 'Android Developer Nanodegree Scholar', issuer: 'Google / Udacity', year: '2017' },
 ]

@@ -70,3 +70,20 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Prevent sideways scroll on small screens */
+html, body { overflow-x: hidden; }
+
+/* Phone showcase: media progress + chat typing dots */
+.phone-progress { animation: phoneProgress 12s linear infinite; }
+@keyframes phoneProgress { from { width: 20%; } to { width: 85%; } }
+
+.typing-dot { animation: typingDot 1s ease-in-out infinite; }
+@keyframes typingDot {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-progress, .typing-dot, .cursor::after { animation: none; }
+}

@@ -7,21 +7,19 @@ export function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-24">
       <Reveal>
-        <SectionHeader index="04" title="Projects" subtitle="Apps I&rsquo;ve shipped." />
+        <SectionHeader index="04" title="Projects" subtitle="Apps I&rsquo;ve shipped and code I&rsquo;ve contributed." />
       </Reveal>
 
       <div className="grid gap-5 md:grid-cols-3">
         {projects.map((p, idx) => (
           <Reveal key={p.name} delay={idx * 80}>
-            <a
+            <Card
               href={p.url}
-              target="_blank"
-              rel="noreferrer"
               className="group flex h-full flex-col rounded-xl border border-line bg-panel/40 p-6 transition-all hover:border-accent/50 hover:bg-panel"
             >
               <div className="mb-3 flex items-start justify-between">
                 <h3 className="text-lg font-semibold text-ink">{p.name}</h3>
-                <ArrowUpRight className="h-4 w-4 text-muted transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
+                {p.url && <ArrowUpRight className="h-4 w-4 text-muted transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />}
               </div>
               {p.downloads && (
                 <div className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-md border border-line px-2 py-0.5 font-mono text-[11px] text-muted">
@@ -40,10 +38,19 @@ export function Projects() {
                   </span>
                 ))}
               </div>
-            </a>
+            </Card>
           </Reveal>
         ))}
       </div>
     </section>
+  )
+}
+
+function Card({ href, className, children }: { href?: string; className: string; children: React.ReactNode }) {
+  if (!href) return <div className={className}>{children}</div>
+  return (
+    <a href={href} target="_blank" rel="noreferrer" className={className}>
+      {children}
+    </a>
   )
 }

@@ -1,16 +1,12 @@
-'use client'
-
-import { useState } from 'react'
 import { ArrowRight, Download, Github, Linkedin, Mail, MapPin } from 'lucide-react'
-import { profile } from '@/lib/data'
+import { profile, stats } from '@/lib/data'
+import { PhoneShowcase } from './PhoneShowcase'
 
 export function Hero() {
-  const [imgFailed, setImgFailed] = useState(false)
-
   return (
     <section
       id="top"
-      className="relative isolate flex min-h-screen items-center overflow-hidden pt-28"
+      className="relative isolate flex min-h-screen items-center overflow-hidden pt-24"
     >
       <div className="bg-grid mask-radial absolute inset-0 -z-10" />
       <div
@@ -18,8 +14,16 @@ export function Hero() {
         style={{ background: 'radial-gradient(closest-side, #7cf3a0, transparent)' }}
       />
 
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:grid-cols-[1.4fr_1fr] md:items-center">
-        <div className="animate-fade-up">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-14 px-6 py-16 md:grid-cols-[1.35fr_1fr] md:items-center">
+        <div className="min-w-0 animate-fade-up">
+          <a
+            href="#contact"
+            className="mb-6 inline-flex max-w-full items-center gap-2 rounded-2xl border border-accent/30 bg-accent/5 px-3 py-1 font-mono text-[11px] text-accent transition-colors hover:bg-accent/10"
+          >
+            <span className="h-1.5 w-1.5 shrink-0 animate-pulse rounded-full bg-accent" />
+            <span>{profile.availability}</span>
+          </a>
+
           <h1 className="text-balance text-4xl font-semibold leading-[1.1] tracking-tight md:text-6xl">
             Building Android
             <br />
@@ -31,6 +35,19 @@ export function Hero() {
           <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted md:text-lg">
             {profile.summary}
           </p>
+
+          <dl className="mt-8 grid max-w-xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label} className="bg-bg/90 px-4 py-3">
+                <dt className="sr-only">{s.label}</dt>
+                <dd className="text-2xl font-semibold tracking-tight text-ink">
+                  {s.value}
+                  <span className="text-base text-accent">{s.unit}</span>
+                </dd>
+                <div className="mt-0.5 text-[11px] leading-tight text-muted">{s.label}</div>
+              </div>
+            ))}
+          </dl>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
@@ -50,14 +67,14 @@ export function Hero() {
               Download CV
             </a>
             <a
-              href="#contact"
+              href={`mailto:${profile.email}`}
               className="inline-flex items-center gap-2 rounded-md border border-line px-4 py-2.5 font-mono text-sm text-ink transition-colors hover:border-accent hover:text-accent"
             >
-              Get in touch
+              Email me
             </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted">
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted">
             <span className="inline-flex items-center gap-2">
               <MapPin className="h-4 w-4" />
               {profile.location}
@@ -90,33 +107,8 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-sm animate-fade-in">
-          <div className="absolute -inset-4 -z-10 rounded-3xl bg-accent/10 blur-2xl" />
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-panel">
-            {imgFailed && (
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center font-mono text-xs text-muted">
-                <span className="text-center">
-                  add your photo at
-                  <br />
-                  <code className="text-accent">/public/profile.jpg</code>
-                </span>
-              </div>
-            )}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/profile.jpg`}
-              alt={profile.name}
-              className="absolute inset-0 h-full w-full object-cover"
-              onError={() => setImgFailed(true)}
-            />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-bg/80 to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 font-mono text-xs text-ink/80">
-              <div className="flex items-center justify-between">
-                <span>{profile.name.split(' ')[0]}.kt</span>
-                <span className="text-accent">● live</span>
-              </div>
-            </div>
-          </div>
+        <div className="animate-fade-in">
+          <PhoneShowcase />
         </div>
       </div>
     </section>
